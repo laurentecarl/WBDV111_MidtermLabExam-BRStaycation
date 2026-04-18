@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BR Staycation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <!-- LOGO AND TEXT -->
+        <div class="navbar-brand">
+            <img src="Logo.png" alt="Logo" class="navbar-logo">
+            <h1>BR Staycation</h1>
+        </div>
+       
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="brstay.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contacts.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Room 1</h2>
+        <p>Perfect Staycation, Right at Home</p>
+
+        <!-- Image Slider -->
+        <div class="slider-container">
+    <div class="slides-wrapper">
+        <div class="slide">
+            <img src="room1bed.jpg" alt="Unit 1 Image 1">
+        </div>
+        <div class="slide">
+            <img src="room1_kitchen.jpg" alt="Unit 1 Image 2">
+        </div>
+        <div class="slide">
+            <img src="room1cr.jpg" alt="Unit 1 Image 3">
+        </div>
+        <div class="slide">
+            <img src="room1boardg.jpg" alt="Unit 1 Image 4">
+        </div>
+        <div class="slide">
+            <img src="room1window.jpg" alt="Unit 1 Image 5">
+        </div>
+    </div>
+
+    <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+
+    <div class="dots-container">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+        <span class="dot" onclick="goToSlide(4)"></span>
+    </div>
+    </div>
+
+    </div>
+</section>
+
+<!-- DETAILS -->
+<section>
+    <h2>Room Inclusions</h2>
+    <div class="info-container">
+        <div class="info-box">Fully Air-Conditioned Room</div>
+        <div class="info-box">Smart TV, Netflix HD , Youtube</div>
+        <div class="info-box">Unlimited WI-FI</div>
+        <div class="info-box">Cards and Board Games</div>
+        <div class="info-box">Extra Mattress (if needed)</div>
+        <div class="info-box">Kitchen utensils and appliances</div>
+        <div class="info-box">Karaoke Mic and Speaker</div>
+        <div class="info-box">Shower Heater</div>
+        <div class="info-box">2 Bath Towels and Tissue</div>
+        <div class="info-box">Free Shampoo, Conditioner, and Hand Soap</div>
+        <div class="info-box">2 sets of Toothbrush, Toothpaste, And Soap</div>
+        <div class="info-box">Coffee Counter Top Table with City View</div>
+        <div class="info-box">Unlimited Coffee</div>
+         <p>Ideal for couples, families, or friends. Relax in a calm atmosphere with cozy interiors, warm lighting, and an overlooking view.</p>
+    </div>
+    <br>
+   
+</section>
+
+<!-- BOOK BUTTON -->
+
+<div class="action-buttons">
+    <a href="contacts.html" class="btn btn-primary">Book Now</a>
+    <a href="brstay.html" class="btn btn-secondary">Back to Home</a>
+</div>
+<br>
+<br>
+<br>
+
+<script src="script.js"></script>
+</body>
+</html>
