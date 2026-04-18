@@ -1,0 +1,656 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #fdf6f0;
+    color: #4b3f3f;
+}
+
+/* Make all Headings use the Fancy Stylish Font */
+h1, h2, h3 {
+    /* This looks like an elegant script/serif font */
+    font-family: 'Garamond', 'Times New Roman', 'Brush Script MT', serif;
+    font-weight: normal;
+    letter-spacing: 1px; /* Makes it look more spaced out and fancy */
+}
+
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #3C332D;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* LOGO STYLES */
+.navbar-logo {
+    height: 80px; /* Adjust size here */
+    width: auto;
+    margin-right: 15px; /* Space between logo and text */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 400;
+}
+
+.nav-links a:hover {
+    color: #ffd6a5;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url(brstaycation2.jpg) center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    opacity: 0.9;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+/* CARDS */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+	background:#000;
+	width:250;
+	height:500;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 350px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Hide Unit 1, Unit 2 text */
+.card h3 {
+    display: none;
+}
+
+/* Style ONLY the View More link */
+.card .card-link {
+    text-align: center;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background: #d4a373;
+    color: white;
+    transition: 0.3s;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-family: Segoe UI;
+}
+
+.card .card-link:hover {
+    background: #b08968;
+}
+
+/* -------------------------- */
+/* STYLES FOR UNIT DETAILS PAGE */
+/* -------------------------- */
+
+.details-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.details-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #4b3f3f;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.feature-box {
+    background: #faedcd;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #4b3f3f;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: #4b3f3f;
+}
+
+/* --- FIXED BUTTONS FOR UNIT PAGE --- */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #d4a373;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #b08968;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #8b5e3c;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #6d4a2f;
+    transform: translateY(-2px);
+}
+
+/* featured staycation */
+
+/* adding border line white setting location*/
+.caption{
+	position:absolute;
+	top: 20px;
+	left:20px;
+	right:20px;
+	bottom:20px;
+
+}
+
+/* adding border to top and button */
+.caption:before{
+	content:'';
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #fff;
+	box-sizing: border-box;
+	transition:.5s;
+	transform: scale(0,1);
+}
+
+/* adding border to left and right */
+.caption:after{
+	content:'';
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	border-left:1px solid #fff;
+	border-right:1px solid #fff;
+	box-sizing: border-box;
+	transition:.5s;
+	transform: scale(1,0);
+}
+
+/* displaying border once hover */
+.box:hover .caption:before, .box:hover .caption:after
+{
+	transform: scale(1,1);
+}	
+
+.box:hover img{
+	opacity:0.7;
+}
+
+/* hide text and view more*/
+#about{
+    position: absolute;
+    z-index: 10; /* ABOVE the image */
+	top: 50%;
+    left:30%;
+	transform:translateY(-50%);
+	transition:.5s;
+	text-align:center;
+	opacity:0;
+}
+
+#about h1{
+    color: white;
+    font-family: Segoe UI;
+}
+
+/* display text and view mote */
+.box:hover #about{
+	opacity:1;
+}
+
+/* INFO SECTION */
+.info-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.info-box {
+    padding: 25px;
+    background: #faedcd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #3C332D;
+    color: white;
+    font-weight: 300;
+}
+
+/* -------------------------- */
+/* CONTACT PAGE STYLES        */
+/* -------------------------- */
+
+.contact-container {
+    width: 90%;
+    max-width: 550px;
+    margin: 40px auto;
+    background: linear-gradient(rgba(255, 250, 243, 0.92), rgba(245, 221, 188, 0.92)), 
+                url('room3table.jpg') center/cover no-repeat;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.contact-container h1 {
+    font-size: 2.2rem;
+    color: #4b3f3f;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.contact-details {
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0e6dc;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item .icon {
+    font-size: 24px;
+    margin-right: 18px;
+    margin-top: 5px;
+    color: #8b5e3c;
+    min-width: 30px;
+}
+
+.detail-item .text h3 {
+    font-size: 1.2rem;
+    color: #4b3f3f;
+    margin-bottom: 6px;
+}
+
+.detail-item .text p,
+.detail-item .text a {
+    font-size: 16px;
+    color: #4b3f3f;
+    line-height: 1.6;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.detail-item .text a {
+    color: #8b5e3c;
+    font-weight: 500;
+}
+
+.detail-item .text a:hover {
+    color: #d4a373;
+    text-decoration: underline;
+}
+
+.back-btn {
+    display: inline-block;
+    background: #d4a373;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #b08968;
+    transform: translateY(-2px);
+}
+
+
+
+/* -------------------------- */
+/* ABOUT US SECTION - FIXED   */
+/* -------------------------- */
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    padding: 0;
+    width: 100%;
+    background-color: #f4e9dd;
+}
+
+
+.about-image {
+    padding: 25px; /* inadjust ko image gamit padding*/
+    flex: 1;
+    overflow: hidden;
+}
+
+
+.about-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+.about-content {
+    flex: 1;
+    padding: 45px;
+    text-align: left;
+}
+
+
+.about-content h2 {
+    text-align: left;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-top: 10px;
+    color: #4b3f3f;
+}
+
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #4b3f3f;
+}
+
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+
+
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 0px;
+    font-size: 1rem;
+    color: #4b3f3f;
+}
+
+
+.about-container {
+    padding: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+ 
+
+
+.about-box {
+    margin: 20px;
+    padding: 20px;
+    width: 240px;
+    background: #f7ead9;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    box-sizing: border-box;
+    flex: 1 1 200px; /* responsive */
+    max-width: 260px;
+   
+}
+
+
+.about-places {
+    padding: 50px;
+    background-color: #fdf6f0;
+}
+
+
+.about-places h1{
+    text-align: center;
+}
+
+
+.about-places strong {
+    color:#735035;
+}
+
+
+/* -------------------------- */
+/* IMAGE SLIDER STYLES        */
+/* -------------------------- */
+
+.slider-container {
+    position: relative;
+    max-width: 40%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slides-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #8b5e3c;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .contact-container {
+        padding: 30px 20px;
+        margin-top: 30px;
+    }
+    
+    .contact-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .card img {
+        height: 280px;
+    }
+
+    /* About Us Mobile */
+    .about-section {
+        flex-direction: column;
+    }
+}
