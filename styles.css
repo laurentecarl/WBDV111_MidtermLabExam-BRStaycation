@@ -543,7 +543,7 @@ footer {
 .slider-container {
     position: relative;
     width: 90%; /* Make it wide */
-    max-width: 400px; /* Keep it neat */
+    max-width: 500px; /* Keep it neat */
     margin: 20px auto;
     overflow: hidden;
     border-radius: 15px;
