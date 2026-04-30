@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BR Staycation | Booking</title>
+    <link rel="icon" type="image/x-icon" href="Logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+  
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <!-- LOGO AND TEXT -->
+        <div class="navbar-brand">
+            <img src="Logo.png" alt="Logo" class="navbar-logo">
+            <h1>BR Staycation</h1>
+        </div>
+       
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contacts.html">Contact Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="booking.html" class="book-btn">Book Now</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body class="booking-page">
+
+<div class="container">
+    <h1>Welcome to BR Staycation 🤍</h1>
+    <h1>Rates:</h1>
+
+    <div class="rooms-grid">
+        <div class="room-card">
+            <h3>Weekdays</h3>
+
+            <p><strong>Monday to Thursday</strong></p>
+            
+            <p>₱1,000 — 8 hrs | 2 pax<p>
+            <p>₱1,300 — 12 hrs | 2 pax</p>
+            <p>₱1,700 — 22 hrs | 2 pax</p>
+        </div>
+
+        <div class="room-card">
+            <h3>Weekend & Holiday </h3>
+            <p><strong>Saturday</strong></p>
+            <p>₱1,900 — 22 hrs | 2 pax</p>
+            <p><strong>Friday and Sunday</strong></p>
+            <p>₱1,100 — 8 hrs | 2 pax</p>
+            <p>₱1,400 — 12 hrs | 2 pax</p>
+            <p>₱1,800 — 22 hrs | 2 pax</p>
+        </div>
+        <div class="room-card">
+            <h3>Promo Rates</h3>
+            <p><strong>2 Days:</strong></p>
+            <p>₱3,100 — 2 pax | Weekdays</p>
+            <p>₱3,300 — 2 pax | Weekends</p>
+            <p><strong>3 Days:</strong></p>
+            <p>₱4,500 — 2 pax | Weekdays</p>
+            <p>₱4,700 — 2 pax | Weekends</p>
+        </div>
+    </div>
+
+    <div class="booking-widget" id="booking-widget">
+        <h2>Book Your Stay</h2>
+        <form id="reservationForm">
+            <div class="date-row">
+                <div class="input-group">
+                    <label>Check-in</label>
+                    <input type="date" id="checkin" required>
+                </div>
+                <div class="input-group">
+                    <label>Checkout</label>
+                    <input type="date" id="checkout" required>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Guests</label>
+                <select>
+                    <option>1 guest</option>
+                    <option>2 guests</option>
+                    <option>3 guests</option>
+                    <option>4 guests</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Contact Number</label>
+                <input type="tel" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+
+            <button type="submit" class="check-btn">Book Now!</button>
+        </form>
+    </div>
+</div> 
+
+<br><br>
+
+<footer>
+    <div class="footer-content">
+        <h3>BR Staycation</h3>
+        <p>Relax, Explore, and Enjoy Local Stays</p>
+        
+        <div class="footer-contact">
+            <p>📞 +63 915 859 6397</p>
+            <p>✉️ brtag2020@gmail.com</p>
+        </div>
+    </div>
+    <p class="copyright">© 2024 BR Staycation | All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup" class="popup-overlay">
+    <div class="popup-content">
+        <h2>✅ Booked Successfully!</h2>
+        <p>Thank you for booking with BR Staycation! 🤍</p>
+        <button id="closePopup">OK</button>
+    </div>
+</div>
+
+</body>
+</html>

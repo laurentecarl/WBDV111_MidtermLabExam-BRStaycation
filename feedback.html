@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | Staycation</title>
+    <link rel="icon" type="image/x-icon" href="Logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <!-- LOGO AND TEXT -->
+        <div class="navbar-brand">
+            <img src="Logo.png" alt="Logo" class="navbar-logo">
+            <h1>BR Staycation</h1>
+        </div>
+       
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contacts.html">Contact Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="booking.html" class="book-btn">Book Now</a></li> <!-- NEW BUTTON -->
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>We Value Your Feedback</h2>
+        <p>Tell us about your experience with our staycation services</p>
+    </div>
+</section>
+
+
+    <div class="feedback-wrapper">
+    <h1>We Value Your Feedback</h1>
+    <p>Tell us about your experience with our staycation services</p>
+
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select rating</option>
+                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                <option value="4">⭐⭐⭐⭐ Very Good</option>
+                <option value="3">⭐⭐⭐ Good</option>
+                <option value="2">⭐⭐ Fair</option>
+                <option value="1">⭐ Poor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Your Feedback</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <div id="successMessage" class="success-msg">
+        Thank you for your feedback! We appreciate your time.
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<footer>
+    <div class="footer-content">
+        <h3>BR Staycation</h3>
+        <p>Relax, Explore, and Enjoy Local Stays</p>
+        
+        <div class="footer-contact">
+            <p>📞 +63 915 859 6397</p>
+            <p>✉️ brtag2020@gmail.com</p>
+        </div>
+    </div>
+
+    <p class="copyright">© 2024 BR Staycation | All Rights Reserved</p>
+</footer>
+
+
+</body>
+</html>
