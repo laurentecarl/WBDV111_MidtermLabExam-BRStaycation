@@ -6,8 +6,10 @@
     <title>BR Staycation | Booking</title>
     <link rel="icon" type="image/x-icon" href="Logo.png">
     <link rel="stylesheet" href="styles.css">
+
 </head>
-  
+<body class="booking-page">
+
 <!-- NAVBAR -->
 <header>
     <nav class="navbar">
@@ -28,11 +30,7 @@
     </nav>
 </header>
 
-<body class="booking-page">
-
 <div class="container">
-    <h1>Welcome to BR Staycation 🤍</h1>
-    <h1>Rates:</h1>
 
     <div class="rooms-grid">
         <div class="room-card">
@@ -40,9 +38,10 @@
 
             <p><strong>Monday to Thursday</strong></p>
             
-            <p>₱1,000 — 8 hrs | 2 pax<p>
+            <p>₱1,000 — 8 hrs | 2 pax</p>
             <p>₱1,300 — 12 hrs | 2 pax</p>
-            <p>₱1,700 — 22 hrs | 2 pax</p>
+            <p>₱1,700 — 22 hrs | 2 pax</p> </br> <br>
+             <strong>🛈 For additional pax: ₱300 per person</strong>
         </div>
 
         <div class="room-card">
@@ -81,7 +80,7 @@
             
             <div class="input-group">
                 <label>Guests</label>
-                <select>
+                <select id="guestSelect">
                     <option>1 guest</option>
                     <option>2 guests</option>
                     <option>3 guests</option>
@@ -90,50 +89,90 @@
             </div>
 
             <div class="input-group">
+                <label>Room</label>
+                <select id="roomSelect" required>
+                    <option value="">Select a room</option>
+                    <option value="Room 1">Room 1</option>
+                    <option value="Room 2">Room 2</option>
+                    <option value="Room 3">Room 3</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Hours</label>
+                <select id="hourSelect" required>
+                    <option value="">Select booking length</option>
+                    <option value="8 hrs">8 hrs</option>
+                    <option value="12 hrs">12 hrs</option>
+                    <option value="22 hrs">22 hrs</option>
+                </select>
+            </div>
+
+            <div class="input-group">
                 <label>Full Name</label>
-                <input type="text" placeholder="Enter your name" required>
+                <input type="text" id="guestName" placeholder="Enter your name" required>
             </div>
 
             <div class="input-group">
                 <label>Contact Number</label>
-                <input type="tel" placeholder="Enter your phone number" required>
+                <input type="tel" id="bookingPhone" placeholder="Enter your phone number" required>
             </div>
 
             <div class="input-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required>
+                <input type="email" id="guestEmail" placeholder="Enter your email" required>
             </div>
 
             <button type="submit" class="check-btn">Book Now!</button>
         </form>
     </div>
-</div> 
+</div>
+
+<!-- Success Popup -->
+<div id="successPopup" class="success-popup">
+    <div class="popup-content">
+        <h2>Booking Confirmed!</h2>
+        <p>Thank you for your reservation. We'll contact you soon with confirmation details.</p>
+    </div>
+</div>
 
 <br><br>
 
 <footer>
-    <div class="footer-content">
-        <h3>BR Staycation</h3>
-        <p>Relax, Explore, and Enjoy Local Stays</p>
-        
+
+     <div class="footer-container">
+        <div class="footer-getintouch">
+            <h3>Get in Touch</h3>
         <div class="footer-contact">
-            <p>📞 +63 915 859 6397</p>
-            <p>✉️ brtag2020@gmail.com</p>
+            <p>Elaine tower 102 Plaza Condominium, Pagrai Hills, Antipolo, Rizal, Philippines 1870</p>
+            <p>Phone: +63 915 859 6397</p>
+            <p>Email: brtag2020@gmail.com</p>
+            <p>Business Hours: 9:00 AM - 5:00 PM </p>
         </div>
-    </div>
+       </div>
+       
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="footer-logo">
+            <a href="https://web.facebook.com/profile.php?id=61557942731692" target="_blank"><img src="fb-logo.png" alt="fb"></a>
+            <a href= "https://www.tiktok.com/@br.staycation" target="_blank"><img src="tiktok-logo.png" alt="tiktok"></a>
+            </div>
+        </div>
+
+        <div class="footer-brlogo">
+            <img src="brfooter.jpg" alt="brlogo">
+            <p>BR Staycation - Aesthetic Condotel Staycation with City View</p>
+        </div>
+    </div>  
+
     <p class="copyright">© 2024 BR Staycation | All Rights Reserved</p>
+
+
+</body>
+</html>
 </footer>
 
-<script src="script.js"></script>
-
-<!-- SUCCESS POPUP -->
-<div id="successPopup" class="popup-overlay">
-    <div class="popup-content">
-        <h2>✅ Booked Successfully!</h2>
-        <p>Thank you for booking with BR Staycation! 🤍</p>
-        <button id="closePopup">OK</button>
-    </div>
-</div>
+    <script src="script.js"></script>
 
 </body>
 </html>
