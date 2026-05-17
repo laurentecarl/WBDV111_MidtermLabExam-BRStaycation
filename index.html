@@ -21,7 +21,7 @@
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="#about-us">About Us</a></li>
             <li><a href="contacts.html">Contact Us</a></li>
             <li><a href="feedback.html">Feedback</a></li>
             <li><a href="booking.html" class="book-btn">Book Now</a></li> <!-- NEW BUTTON -->
@@ -32,48 +32,113 @@
 <section class="hero">
     <div class="hero-content">
         <h2>Find Your Perfect Escape at BR Staycation</h2>
-        <p>↟ 𖠰.݁ Relax, Explore, and Enjoy Local Stays ݁.𖠰 ↟</p>
+        <p>Relax, Explore, and Enjoy Local Stays</p>
 
     </div>
 </section>
 
 <!-- FEATURED STAYS -->
-<section>
-    <h2>Featured Staycations</h2>
+<section class="three-card">
+    <h2>Explore Our Rooms</h2>
     <div class="card-container">
         <div class="card box">
             <img src="room1bed.jpg" id="img1">
-			<div class="caption">
-				<div id=about>
-				<h1>BR ROOM 1</h1>
+            <div class="caption">
+                <div class="about">
+                <h1>BR ROOM 1</h1>
                 <a href="unit1.html" class="card-link">View More</a>
-				</div>
-			</div>
+                </div>
+            </div>
         </div>
 
         <div class="card box">
              <img src="room2bed2.JPG" id="img2">
-			<div class="caption">
-				<div id=about>
-				<h1>BR ROOM 2</h1>
+            <div class="caption">
+                <div class="about">
+                <h1>BR ROOM 2</h1>
                 <a href="unit2.html" class="card-link">View More</a>
-				</div>
-			</div>
+                </div>
+            </div>
         </div>   
 
         <div class="card box">
              <img src="brstaycation1.jpg" id="img2">
-			<div class="caption">
-				<div id=about>
-				<h1>BR ROOM 3</h1>
+            <div class="caption">
+                <div class="about">
+                <h1>BR ROOM 3</h1>
                 <a href="unit3.html" class="card-link">View More</a>
-				</div>
-			</div>
+                </div>
+            </div>
         </div>   
+            
 
     </div>
 </section>
 
+<!-- ===== ABOUT CONTENT - NEW LAYOUT ===== -->
+<section class="about-us-section" id="about-us">
+
+    <div class="about-us-container" id="about-us-container">
+        <div class="about-us-row">
+
+            <div class="about-us-image">
+            <img src="stayroom.jpg" alt="About Us">
+            </div>
+             
+           <div class="about-us-content">
+            <h2>About Us</h2>
+            <p>
+                BR Staycation is a cozy and relaxing place designed to provide guests with a restful experience. We offer stylish and affordable accommodations where you can unwind and take a break from your busy life. Our staycation features three rooms: Room 1, Room 2, and Room 3. Each has its own unique style while maintaining a warm and comfortable atmosphere for every guest.
+            </p>          
+                     <a href="about.html" class="about-btn"> Read More → </a>
+
+            </div>
+ 
+        </div>
+    </div>    
+
+</section>
+
+<section class="gallery-section">
+    <h2>BR Staycation Gallery</h2>
+    <div class="gallery-grid gallery-layout">
+        <div class="gallery-card gallery-card-large">
+            <img src="roominc2.jpg" alt="Room 1" data-index="0">
+        </div>
+        <div class="gallery-right-grid">
+            <div class="gallery-card gallery-card-small">
+                <img src="brstay3.jpg" alt="Room 1 Kitchen" data-index="1">
+            </div>
+            <div class="gallery-card gallery-card-small">
+                <img src="gal5.jpg" alt="Room 2" data-index="2">
+            </div>
+            <div class="gallery-card gallery-card-small">
+                <img src="gal7.jpg" alt="Room 2 Lounge" data-index="3">
+            </div>
+            <div class="gallery-card gallery-card-more" id="galleryMoreTile">
+                <span>Show all photos</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="galleryModal" class="gallery-modal">
+    <span class="gallery-close">&times;</span>
+    <button class="gallery-nav gallery-prev" aria-label="Previous">&#10094;</button>
+    <img class="gallery-modal-content" id="galleryModalImg" alt="Gallery Image">
+    <button class="gallery-nav gallery-next" aria-label="Next">&#10095;</button>
+</div>
+
+<section class="info">
+
+    <div class="info-body">
+
+        <h3> Experience comfort, relaxation, and unforgettable moments during your stay.</h3>
+        <p>At BR Staycation, we provide more than just a place to stay — we create a cozy, stylish, and memorable escape for every guest. Our staycation offers three thoughtfully designed rooms, each with its own unique atmosphere, blending comfort, aesthetic interiors, and relaxation. Whether you're planning a peaceful solo retreat, a fun family getaway, or a bonding experience with friends, our spaces are designed to suit every occasion.</p>
+        <p>Guests can enjoy breathtaking city views, cozy accommodations, and a relaxing condotel ambiance that feels like a home away from home. Every stay is crafted to offer comfort, convenience, and unforgettable moments — from restful nights to picture-perfect experiences. With carefully designed spaces and a welcoming atmosphere, BR Staycation is the perfect destination for relaxation, connection, and creating lasting memories.</p>
+    </div>
+    
+</section>
 
 <!-- WHY CHOOSE US -->
 <section>
@@ -88,15 +153,31 @@
   <script src="script.js"></script>
 
    <footer>
-    <div class="footer-content">
-        <h3>BR Staycation</h3>
-        <p>Relax, Explore, and Enjoy Local Stays</p>
-        
+
+     <div class="footer-container">
+        <div class="footer-getintouch">
+            <h3>Get in Touch</h3>
         <div class="footer-contact">
-            <p>📞 +63 915 859 6397</p>
-            <p>✉️ brtag2020@gmail.com</p>
+            <p>Elaine tower 102 Plaza Condominium, Pagrai Hills, Antipolo, Rizal, Philippines 1870</p>
+            <p>Phone: +63 915 859 6397</p>
+            <p>Email: brtag2020@gmail.com</p>
+            <p>Business Hours: 9:00 AM - 5:00 PM </p>
         </div>
-    </div>
+       </div>
+       
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="footer-logo">
+            <a href="https://web.facebook.com/profile.php?id=61557942731692" target="_blank"><img src="fb-logo.png" alt="fb"></a>
+            <a href= "https://www.tiktok.com/@br.staycation" target="_blank"><img src="tiktok-logo.png" alt="tiktok"></a>
+            </div>
+        </div>
+
+        <div class="footer-brlogo">
+            <img src="brfooter.jpg" alt="brlogo">
+            <p>BR Staycation - Aesthetic Condotel Staycation with City View</p>
+        </div>
+    </div>  
 
     <p class="copyright">© 2024 BR Staycation | All Rights Reserved</p>
 </footer>
