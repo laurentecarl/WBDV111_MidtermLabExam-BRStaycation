@@ -6,20 +6,6 @@ function toggleMenu() {
     }
 }
 
-// ================= GUEST COUNTER =================
-let counts = { adults: 1, children: 0, infants: 0 };
-
-function updateDisplay() {
-    // Update any guest display elements if they exist
-    const adultDisplay = document.getElementById('adultCount');
-    const childrenDisplay = document.getElementById('childrenCount');
-    const infantsDisplay = document.getElementById('infantsCount');
-    
-    if (adultDisplay) adultDisplay.textContent = counts.adults;
-    if (childrenDisplay) childrenDisplay.textContent = counts.children;
-    if (infantsDisplay) infantsDisplay.textContent = counts.infants;
-}
-
 // ================= WHEN PAGE LOADS =================
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -58,7 +44,6 @@ window.addEventListener('DOMContentLoaded', function() {
     // ================= BOOKING FORM FUNCTIONS =================
     const form = document.getElementById('reservationForm');
     const popup = document.getElementById('successPopup');
-    const closeBtn = document.getElementById('closePopup');
     const bookingStorageKey = 'brStaycationBookings';
 
     function getSavedBookings() {
@@ -118,17 +103,6 @@ window.addEventListener('DOMContentLoaded', function() {
             }
 
             form.reset();
-            counts = { adults: 1, children: 0, infants: 0 };
-            updateDisplay();
-        });
-    }
-
-    // Close popup when clicking button
-    if(closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            if (popup) {
-                popup.classList.remove('visible');
-            }
         });
     }
 
@@ -262,9 +236,6 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Initialize display
-    updateDisplay();
 
     // reveal page after load (restores intended fade-in)
     setTimeout(function() {
