@@ -1,10 +1,27 @@
 // ================= MENU TOGGLE =================
 function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
+    const navLinks = document.getElementById("navLinks");
+    if (navLinks) {
+        navLinks.classList.toggle("active");
+    }
+}
+
+// ================= GUEST COUNTER =================
+let counts = { adults: 1, children: 0, infants: 0 };
+
+function updateDisplay() {
+    // Update any guest display elements if they exist
+    const adultDisplay = document.getElementById('adultCount');
+    const childrenDisplay = document.getElementById('childrenCount');
+    const infantsDisplay = document.getElementById('infantsCount');
+    
+    if (adultDisplay) adultDisplay.textContent = counts.adults;
+    if (childrenDisplay) childrenDisplay.textContent = counts.children;
+    if (infantsDisplay) infantsDisplay.textContent = counts.infants;
 }
 
 // ================= WHEN PAGE LOADS =================
-window.onload = function() {
+window.addEventListener('DOMContentLoaded', function() {
 
     // ================= IMAGE SLIDER =================
     let currentSlide = 0;
@@ -42,29 +59,76 @@ window.onload = function() {
     const form = document.getElementById('reservationForm');
     const popup = document.getElementById('successPopup');
     const closeBtn = document.getElementById('closePopup');
+    const bookingStorageKey = 'brStaycationBookings';
+
+    function getSavedBookings() {
+        try {
+            return JSON.parse(localStorage.getItem(bookingStorageKey) || '[]');
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveBookings(bookings) {
+        localStorage.setItem(bookingStorageKey, JSON.stringify(bookings));
+    }
+
+    function addBooking(booking) {
+        const bookings = getSavedBookings();
+        bookings.unshift(booking);
+        if (bookings.length > 5) bookings.length = 5;
+        saveBookings(bookings);
+    }
 
     if(form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Show the custom popup
-            popup.style.display = "flex";
-            
-            // Reset the form
-            form.reset();
-            
-            // Reset guest counter
-            if(typeof updateDisplay === 'function') {
-                counts = { adults: 1, children: 0, infants: 0 };
-                updateDisplay();
+            const roomSelect = document.getElementById('roomSelect');
+            const hourSelect = document.getElementById('hourSelect');
+            const guestSelect = document.getElementById('guestSelect');
+            const guestName = document.getElementById('guestName');
+            const guestEmail = document.getElementById('guestEmail');
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
+            const bookingPhone = document.getElementById('bookingPhone');
+
+            const room = roomSelect?.value || '';
+            const hours = hourSelect?.value || '';
+            const guests = guestSelect?.value || '';
+            const name = guestName?.value || '';
+            const email = guestEmail?.value || '';
+            const phone = bookingPhone?.value || '';
+            const checkin = checkinInput?.value || '';
+            const checkout = checkoutInput?.value || '';
+
+            if (popup) {
+                const popupMsg = popup.querySelector('.popup-content p');
+                if (popupMsg) {
+                    const details = [room, hours].filter(Boolean).join(' - ');
+                    popupMsg.textContent = details
+                        ? `Thank you for your reservation for ${details}. We'll contact you soon with confirmation details.`
+                        : "Thank you for your reservation. We'll contact you soon with confirmation details.";
+                }
+                popup.classList.add('visible');
             }
+
+            if (room) {
+                addBooking({ room, hours, guests, name, phone, email, checkin, checkout, created: new Date().toISOString() });
+            }
+
+            form.reset();
+            counts = { adults: 1, children: 0, infants: 0 };
+            updateDisplay();
         });
     }
 
     // Close popup when clicking button
     if(closeBtn) {
         closeBtn.addEventListener('click', function() {
-            popup.style.display = "none";
+            if (popup) {
+                popup.classList.remove('visible');
+            }
         });
     }
 
@@ -72,7 +136,7 @@ window.onload = function() {
     if(popup) {
         popup.addEventListener('click', function(e) {
             if(e.target === popup) {
-                popup.style.display = "none";
+                popup.classList.remove('visible');
             }
         });
     }
@@ -105,34 +169,131 @@ window.onload = function() {
         });
     }
 
-        updateDisplay(); // Initialize
+    // --- GALLERY MODAL VIEWER ---
+    const galleryImgElements = document.querySelectorAll('.gallery-card img');
+    const galleryModal = document.getElementById('galleryModal');
+    const galleryModalImg = document.getElementById('galleryModalImg');
+    const galleryClose = document.querySelector('.gallery-close');
+    const galleryPrev = document.querySelector('.gallery-prev');
+    const galleryNext = document.querySelector('.gallery-next');
+    const galleryMoreTile = document.getElementById('galleryMoreTile');
 
- /* ==============================
-   FEEDBACK FORM SCRIPT
-   ============================== */
+    // initial images shown on the page (kept as-is)
+    const initialGallery = Array.from(galleryImgElements).map(img => ({ src: img.src, alt: img.alt }));
 
-document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    // 10 extra images that will only appear inside the modal when "Show all photos" is clicked
+    const extraGallery = [
+        { src: 'gal2.jpg', alt: 'Room 3' },
+        { src: 'brstay5.jpg', alt: 'Room 4' }, 
+        { src: 'brstay6.jpg', alt: 'Room 5' },
+        { src: 'brstay7.jpg', alt: 'Room 6' },
+        { src: 'brstay8.jpg', alt: 'Room 7' },
+        { src: 'brstaycation2.jpg', alt: 'Room 8' },
+        { src: 'gal3.jpg', alt: 'Room 9' },
+        { src: 'gal6.jpg', alt: 'Room 10' },
+        { src: 'roominc.jpg', alt: 'Room 11' },
+        { src: 'gal8.jpg', alt: 'Room 12' }
+    ];
 
-    document.getElementById('successMessage').style.display = 'block';
-    this.reset();
+    let includeExtra = false;
+    let currentGalleryIndex = 0;
 
-    setTimeout(() => {
-        document.getElementById('successMessage').style.display = 'none';
-    }, 5000);
-});
+    function getGalleryList() {
+        return includeExtra ? initialGallery.concat(extraGallery) : initialGallery;
+    }
 
-// script.js
+    function showGalleryImage(index) {
+        const list = getGalleryList();
+        if (!list.length) return;
+        currentGalleryIndex = (index + list.length) % list.length;
+        const img = list[currentGalleryIndex];
+        if (galleryModalImg) {
+            // fade-out current image, set new src, then fade-in on load
+            try {
+                galleryModalImg.style.opacity = 0;
+            } catch (e) {}
+            galleryModalImg.onload = function() {
+                try { galleryModalImg.style.opacity = 1; } catch(e) {}
+            };
+            galleryModalImg.src = img.src;
+        }
+        if (galleryModal) galleryModal.style.display = 'block';
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    galleryImgElements.forEach((img, i) => {
+        img.addEventListener('click', function() {
+            includeExtra = false; // clicking page images shows only initial set
+            const index = Number(this.dataset.index ?? i);
+            showGalleryImage(index);
+        });
+    });
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    if (galleryMoreTile) {
+        galleryMoreTile.addEventListener('click', function() {
+            includeExtra = true; // include extra images in modal
+            showGalleryImage(0);
         });
     }
-});
 
-}
+    if (galleryPrev) {
+        galleryPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showGalleryImage(currentGalleryIndex - 1);
+        });
+    }
+
+    if (galleryNext) {
+        galleryNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showGalleryImage(currentGalleryIndex + 1);
+        });
+    }
+
+    if (galleryClose) {
+        galleryClose.addEventListener('click', function() {
+            if (galleryModal) galleryModal.style.display = 'none';
+        });
+    }
+
+    if (galleryModal) {
+        galleryModal.addEventListener('click', function(e) {
+            if (e.target === galleryModal) {
+                galleryModal.style.display = 'none';
+            }
+        });
+    }
+
+    // Initialize display
+    updateDisplay();
+
+    // reveal page after load (restores intended fade-in)
+    setTimeout(function() {
+        document.body.classList.add('page-visible');
+    }, 50);
+
+
+    /* ==============================
+       FEEDBACK FORM SCRIPT
+       ============================== */
+
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackSuccess = document.getElementById('successMessage');
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (feedbackSuccess) {
+                feedbackSuccess.style.display = 'block';
+            }
+            this.reset();
+
+            setTimeout(() => {
+                if (feedbackSuccess) {
+                    feedbackSuccess.style.display = 'none';
+                }
+            }, 5000);
+        });
+    }
+
+});
