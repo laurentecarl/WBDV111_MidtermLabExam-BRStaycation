@@ -460,6 +460,8 @@ h2 {
     background: #b08968;
 }
 
+/* GALLERY */
+
 .gallery-page .hero {
     padding: 38px 24px 28px;
     min-height: 180px;
@@ -2114,7 +2116,7 @@ html, body {
 /* Smooth modal image transitions */
 .gallery-modal-content,
 #galleryModalImg {
-    transition: opacity 300ms ease;
+    transition: none;
     opacity: 1;
 }
 
