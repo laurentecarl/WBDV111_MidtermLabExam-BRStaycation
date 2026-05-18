@@ -157,16 +157,16 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // 10 extra images that will only appear inside the modal when "Show all photos" is clicked
     const extraGallery = [
-        { src: 'gal2.jpg', alt: 'Room 3' },
+        { src: 'gal2.JPG', alt: 'Room 3' },
         { src: 'brstay5.jpg', alt: 'Room 4' }, 
         { src: 'brstay6.jpg', alt: 'Room 5' },
         { src: 'brstay7.jpg', alt: 'Room 6' },
         { src: 'brstay8.jpg', alt: 'Room 7' },
         { src: 'brstaycation2.jpg', alt: 'Room 8' },
-        { src: 'gal3.jpg', alt: 'Room 9' },
-        { src: 'gal6.jpg', alt: 'Room 10' },
+        { src: 'gal3.JPG', alt: 'Room 9' },
+        { src: 'gal6.JPG', alt: 'Room 10' },
         { src: 'roominc.jpg', alt: 'Room 11' },
-        { src: 'gal8.jpg', alt: 'Room 12' }
+        { src: 'gal8.JPG', alt: 'Room 12' }
     ];
 
     let includeExtra = false;
